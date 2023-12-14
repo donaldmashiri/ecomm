@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
+use File;
 
 class ProfileController extends Controller
 {
@@ -23,13 +24,26 @@ class ProfileController extends Controller
             'image' =>['image', 'max:2048']
         ]);
 
+        $user = Auth::user();
+
         if ($request->hasFile('image')) {
+
+           if( File::exists(public_path($user->image))){
+
+            File::delete(public_path($user->image));
+           }
+
             $image = $request->image;
 
-            $imageName = rand().'-'.$image->getCliendOriginalName;
+            $imageName = rand().'_'.$image->getClientOriginalName();
+            $image->move(public_path('uploads'), $imageName);
+
+            $path ="/uploads/".$imageName;
+
+            $user->image = $path;
         }
 
-        $user = Auth::user();
+       
 
         $user->name = $request->name;
         $user->email = $request->email;
@@ -37,5 +51,10 @@ class ProfileController extends Controller
 
         return redirect()->back();
 
+    }
+
+    public function updatePassword(Request $request)
+    {
+        dd($request->all());
     }
 }
