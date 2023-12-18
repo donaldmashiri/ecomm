@@ -38,17 +38,13 @@
                       </div>
                     <div class="form-group col-md-6 col-12">
                       <label>Name</label>
-                      <input type="text" class="form-control" name="name" value="{{ Auth::user()->name}}" required="">
-                      <div class="invalid-feedback">
-                        Please fill in the first name
-                      </div>
+                      <input type="text" class="form-control" name="name" value="{{ Auth::user()->name}}">
+                 
                     </div>
                     <div class="form-group col-md-6 col-12">
                       <label>Email</label>
-                      <input type="text" class="form-control" name="email" value="{{ Auth::user()->email}}" required="">
-                      <div class="invalid-feedback">
-                        Please fill in the last name
-                      </div>
+                      <input type="text" class="form-control" name="email" value="{{ Auth::user()->email}}">
+                   
                     </div>
                   </div>
 
@@ -62,7 +58,10 @@
           </div>
         </div>
 
+
         <div class="col-12 col-md-12 col-lg-7">
+          
+       
           <div class="card">
             <form method="POST" class="needs-validation" action="{{ route('admin.password.update')}}" enctype="multipart/form-data">
                 @csrf
