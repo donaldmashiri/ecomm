@@ -25,6 +25,9 @@
 
     <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/responsive.css')}}">
+
+     {{-- toaster minified css --}}
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <!-- <link rel="stylesheet" href="css/rtl.css"> -->
 </head>
 
@@ -146,6 +149,18 @@
 
     <!--main/custom js-->
     <script src="{{asset('frontend/js/main.js')}}"></script>
+
+      {{-- toaster js --}}
+  <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+  <script>
+    @if ($errors->any())
+      @foreach ($errors->all() as $error )
+      toastr.error("{{$error}}")
+      @endforeach
+    @endif
+
+</script>
 </body>
 
 </html>
