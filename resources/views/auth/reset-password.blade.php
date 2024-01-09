@@ -45,14 +45,18 @@
                             <h4>Reset password</h4>
                             <div class="wsus__single_pass">
                                 <label>Email</label>
-                                <input type="email" id="email" name="email" value="{{ old('email')}}" placeholder="Email">
+                                <input type="email" id="email" 
+                                name="email" value="{{ old('email', $request->email)}}" 
+                                placeholder="Email">
                             </div>
                             <div class="wsus__single_pass">
-                                <label>new password</label>
-                                <input type="password" id="password" name="password" placeholder="New Password">
+                                <label>New password</label>
+                                <input type="password" id="password" 
+                                name="password" 
+                                placeholder="New Password">
                             </div>
                             <div class="wsus__single_pass">
-                                <label>confirm password</label>
+                                <label>Confirm password</label>
                                 <input type="password" id="password_confirmation"  name="password_confirmation" placeholder="Confirm Password">
                             </div>
                             <button class="common_btn" type="submit">submit</button>
