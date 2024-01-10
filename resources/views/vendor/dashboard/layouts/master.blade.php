@@ -25,6 +25,10 @@
   <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
   <link rel="stylesheet" href="{{asset('frontend/css/responsive.css')}}">
   <!-- <link rel="stylesheet" href="css/rtl.css"> -->
+
+     {{-- toaster minified css --}}
+     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
 </head>
 
 <body>
@@ -35,8 +39,8 @@
   ==============================-->
   <div class="wsus__dashboard_menu">
     <div class="wsusd__dashboard_user">
-      <img src="images/dashboard_user.jpg" alt="img" class="img-fluid">
-      <p>anik roy</p>
+      <img src="{{ asset('frontend/images/dashboard_user.jpg')}}" alt="img" class="img-fluid">
+      <p>{{ Auth::user()->name}}</p>
     </div>
   </div>
   <!--=============================
@@ -101,6 +105,20 @@
 
   <!--main/custom js-->
   <script src="{{asset('frontend/js/main.js')}}"></script>
+
+   {{-- toaster js --}}
+   <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+   {{-- for errrors --}}
+   <script>
+     @if ($errors->any())
+       @foreach ($errors->all() as $error )
+       toastr.error("{{$error}}")
+       @endforeach
+     @endif
+
+ </script>
+ 
 </body>
 
 </html>
