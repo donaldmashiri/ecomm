@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\SliderController;
 
 // admin dashboard
 Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
@@ -14,5 +15,9 @@ Route::post('profile/update', [ProfileController::class, 'profileUpdate'])->name
 
 Route::post('profile/update/password', [ProfileController::class, 'updatePassword'])->name('password.update');
 
+
+// slider routes
+
+Route::resource('slider', SliderController::class);
 
 
