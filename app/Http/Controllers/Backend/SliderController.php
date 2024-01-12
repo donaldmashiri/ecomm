@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Traits\ImageUploadTrait;
 
+use App\DataTables\SliderDataTable;
+
 use App\Models\Slider;
 
 class SliderController extends Controller
@@ -14,10 +16,9 @@ class SliderController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index( SliderDataTable $dataTable)
     {
-        //
-        return view('admin.slider.index');
+        return $dataTable->render('admin.slider.index');
     }
 
     /**
