@@ -22,6 +22,9 @@
   {{-- toaster minified css --}}
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
+  {{-- datatable --}}
+  <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+
 
 <!-- Start GA -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
@@ -98,6 +101,8 @@
 
   {{-- toaster js --}}
   <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+  <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 
   <script>
       @if ($errors->any())
