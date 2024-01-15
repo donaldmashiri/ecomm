@@ -144,6 +144,23 @@
           confirmButtonText: "Yes, delete it!"
         }).then((result) => {
           if (result.isConfirmed) {
+
+            $.ajax({
+              type: 'DELETE',
+              url: '',
+
+
+              success: function(data){
+                console.log(data);
+              },
+
+              error: function(xhr, status, error){
+                console.log(error);
+              }
+            })
+
+
+
             Swal.fire({
               title: "Deleted!",
               text: "Your file has been deleted.",
