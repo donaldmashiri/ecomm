@@ -25,6 +25,9 @@
   {{-- datatable --}}
   <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 
+  {{-- datatable css --}}
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+
 
 <!-- Start GA -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
@@ -104,7 +107,13 @@
 
   <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 
+  <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+
+  {{-- sweet alert --}}
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   
+
+  {{-- {{ $dataTable->scripts(attributes: ['type' => 'module'])}} --}}
 
   <script>
       @if ($errors->any())
@@ -114,6 +123,46 @@
       @endif
 
   </script>
+
+  {{-- dynamic delete alert--}}
+
+  <script>
+
+    $(document).ready(function(){
+
+      $('body').on('click', '.delete-item', function(event){
+
+        event.preventDefault();
+
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success"
+            });
+          }
+        });
+
+
+      })
+      
+
+
+
+
+    })
+
+  </script>
+
 
   @stack('scripts')
 </body>
