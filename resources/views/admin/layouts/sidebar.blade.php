@@ -9,11 +9,7 @@
       <ul class="sidebar-menu">
         <li class="menu-header">Dashboard</li>
         <li class="dropdown active">
-          <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
-          <ul class="dropdown-menu">
-            <li class=active><a class="nav-link" href="/admin/dashboard">General Dashboard</a></li>
-            <li><a class="nav-link" href="/admin/dashboard">Ecommerce Dashboard</a></li>
-          </ul>
+          <a href="{{ route('admin.dashboard')}}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
         </li>
         <li class="menu-header">Starter</li>
 
