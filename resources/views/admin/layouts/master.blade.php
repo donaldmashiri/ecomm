@@ -15,19 +15,20 @@
   <link rel="stylesheet" href="{{ asset('backend/assets/modules/weather-icon/css/weather-icons.min.css')}}">
   <link rel="stylesheet" href="{{ asset('backend/assets/modules/weather-icon/css/weather-icons-wind.min.css')}}">
   <link rel="stylesheet" href="{{ asset('backend/assets/modules/summernote/summernote-bs4.css')}}">
+  {{-- toaster minified css --}}
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  {{-- datatable --}}
+  <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+  {{-- datatable css --}}
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+  {{-- icone picker --}}
+  <link rel="stylesheet" href="{{ asset('backend/assets/css/bootstrap-iconpicker.min.css')}}">
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ asset('backend/assets/css/style.css')}}">
   <link rel="stylesheet" href="{{ asset('backend/assets/css/components.css')}}">
 
-  {{-- toaster minified css --}}
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-
-  {{-- datatable --}}
-  <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
-
-  {{-- datatable css --}}
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+  
 
 
 <!-- Start GA -->
@@ -95,26 +96,24 @@
   <script src="{{ asset('backend/assets/modules/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
   <script src="{{ asset('backend/assets/modules/summernote/summernote-bs4.js')}}"></script>
   <script src="{{ asset('backend/assets/modules/chocolat/dist/js/jquery.chocolat.min.js')}}"></script>
-
-  <!-- Page Specific JS File -->
-  <script src="{{ asset('backend/assets/js/page/index-0.js')}}"></script>
-
-  <!-- Template JS File -->
-  <script src="{{ asset('backend/assets/js/scripts.js')}}"></script>
-  <script src="{{ asset('backend/assets/js/custom.js')}}"></script>
-
   {{-- toaster js --}}
   <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
   <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-
   <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
-
   {{-- sweet alert --}}
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  
+  {{-- icon picker js --}}
+  <script src="{{ asset('backend/assets/js/bootstrap-iconpicker.bundle.min.js')}}"></script>
 
-  {{-- {{ $dataTable->scripts(attributes: ['type' => 'module'])}} --}}
+
+    <!-- Page Specific JS File -->
+    <script src="{{ asset('backend/assets/js/page/index-0.js')}}"></script>
+
+    <!-- Template JS File -->
+    <script src="{{ asset('backend/assets/js/scripts.js')}}"></script>
+    <script src="{{ asset('backend/assets/js/custom.js')}}"></script>
+
+
 
   <script>
       @if ($errors->any())
