@@ -40,10 +40,10 @@ class CategoryDataTable extends DataTable
                 <span class="custom-switch-indicator"></span>
               </label>';
             }
-             
+
             return $button;
             })
-        
+
             ->addColumn('action', function($query){
                 $editBtn = "<a href='".route('admin.category.edit', $query->id)."' class='btn btn-primary'><i class='fas fa-edit'></i></a>";
                $deleteBtn = "<a href='".route('admin.category.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='fas fa-trash-alt'></i></a>";
@@ -52,7 +52,7 @@ class CategoryDataTable extends DataTable
             })
 
             ->rawColumns(['action','icon', 'status'])
-            
+
             ->setRowId('id');
     }
 
@@ -92,7 +92,7 @@ class CategoryDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-          
+
             Column::make('id')->width(60),
             Column::make('icon')->width(200),
             Column::make('name'),

@@ -1,8 +1,5 @@
 @extends('frontend.dashboard.layouts.master')
-
-
 @section('content')
-
 <section id="wsus__dashboard">
     <div class="container-fluid">
     @include('frontend.dashboard.layouts.sidebar')
@@ -14,7 +11,7 @@
                 <div class="col-xl-2 col-6 col-md-4">
                   <a class="wsus__dashboard_item red" href="dsahboard_order.html">
                     <i class="far fa-address-book"></i>
-                    <p>order</p>
+                    <p>Order</p>
                   </a>
                 </div>
                 <div class="col-xl-2 col-6 col-md-4">
@@ -151,5 +148,5 @@
       </div>
     </div>
   </section>
-    
+
 @endsection
