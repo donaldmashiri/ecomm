@@ -4,7 +4,7 @@
 
 <section class="section">
     <div class="section-header">
-      <h1>Sub Category</h1>
+      <h1>Child Category</h1>
     </div>
 
     <div class="section-body">
@@ -17,7 +17,7 @@
             <div class="card-header">
               <h4>All Sub Categories</h4>
               <div class="card-header-action">
-                <a href="{{ route('admin.sub-category.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Creat New</a>
+                <a href="{{ route('admin.child-category.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Creat New</a>
               </div>
             </div>
             <div class="card-body">

@@ -99,5 +99,17 @@ class SubCategoryController extends Controller
     public function destroy(string $id)
     {
         //
+        $subcategory = SubCategory::findOrFail($id);
+        $subcategory->delete();
+        return response(['status'=>'success', 'Deleted Successfully!!']);
+        return redirect()->route('admin.sub-category.index');
+    }
+
+    public function changeStatus(Request $request)
+    {
+        $subcategory = SubCategory::findOrFail($request->id);
+        $subcategory->status = $request->status =='true' ? 1 : 0;
+        $subcategory->save();
+        return response(['message'=>'Status has been updated']);
     }
 }
