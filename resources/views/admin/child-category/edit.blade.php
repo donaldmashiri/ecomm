@@ -13,16 +13,14 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h4>Create Child Category</h4>
+              <h4>Update Child Category</h4>
 
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.child-category.store')}}" method="POST">
+                <form action="{{ route('admin.child-category.update', $childCategory)}}" method="POST">
                     @csrf
-                    <div class="from-group">
-                        <label>Name</label>
-                        <input type="text" class="form-control" name="name" value="">
-                    </div>
+                    @method('PUT')
+                   
 
                     <div class="form-group">
                       <label for="inputState">Category</label>
@@ -44,15 +42,19 @@
                       </select>
                     </div>
 
+                    <div class="from-group">
+                      <label>Child Category Name</label>
+                      <input type="text" class="form-control" name="name" value="{{$childCategory->name}}">
+                    </div>
+
                     <div class="form-group">
                       <label for="inputState">Status</label>
                       <select id="inputState" class="form-control" name="status">
-                        <option {{$subCategory->status == 1 ? 'selected' : ''}} value="1">Active</option>
-                        <option {{$subCategory->status == 0 ? 'selected' : ''}} value="0">Inactive</option>
+                        <option {{$childCategory->status ==1 ? 'selected' : ''}} value="1">Active</option>
+                        <option {{$childCategory->status ==0 ? 'selected' : ''}} value="0">Inactive</option>
                       </select>
                     </div>
-              
-                      <button type="submit" class="btn btn-primary">Create</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </form>
             </div>
             

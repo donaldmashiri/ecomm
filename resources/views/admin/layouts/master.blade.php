@@ -158,6 +158,7 @@
                     Swal.fire(
                       'Cant Deleted',
                       data.message,
+                      'error'
                     )
                 }
 

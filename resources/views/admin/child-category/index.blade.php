@@ -44,7 +44,7 @@
        let isChecked = $(this).is(':checked');
        let id = $(this).data('id');
        $.ajax({
-        url: "{{route('admin.sub-category.change-status')}}",
+        url: "{{route('admin.child-category.change-status')}}",
         method: 'PUT',
         data: {
           status: isChecked,

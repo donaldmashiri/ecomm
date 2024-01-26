@@ -92,7 +92,22 @@ class ChildCategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'category' => ['required'],
+            'sub_category' => ['required'],
+            'name' => ['required', 'max:200','unique:child_categories,name,'.$id],
+            'status' => ['required'],
+        ]);
+
+        $childCategory = ChildCategory::findOrFail($id);
+        $childCategory->category_id = $request->category;
+        $childCategory->sub_category_id = $request->sub_category;
+        $childCategory->name = $request->name;
+        $childCategory->status = $request->status;
+        $childCategory->slug = Str::slug($request->name);
+        $childCategory->save();
+        toastr('Child Category Updated Successfully!!', 'success');
+        return redirect()->route('admin.child-category.index');
     }
 
     /**
@@ -101,5 +116,17 @@ class ChildCategoryController extends Controller
     public function destroy(string $id)
     {
         //
+        $childCategory = ChildCategory::findOrFail($id);
+        $childCategory->delete();
+        return response(['status'=>'success', 'message'=>'Deleted Successffully!!']);
     }
+
+    public function changeStatus(Request $request)
+    {
+        $category = ChildCategory::findOrFail($request->id);
+        $category->status = $request->status =='true' ? 1 : 0;
+        $category->save();
+
+        return response(['message'=>'Status has been updated']);
+     }
 }
