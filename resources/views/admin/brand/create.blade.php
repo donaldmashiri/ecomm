@@ -22,41 +22,27 @@
                     @csrf
 
                     <div class="from-group">
-                        <label>Banner</label>
-                        <input type="file" name="banner" class="form-control">
+                        <label>Logo</label>
+                        <input type="file" name="logo" class="form-control">
                     </div>
-
                     <div class="from-group">
-                        <label>Type</label>
-                        <input type="text" class="form-control" name="type" value="{{ old('type')}}">
+                        <label>Name</label>
+                        <input type="text" class="form-control" name="name">
                     </div>
-
-                    <div class="from-group">
-                        <label>Title</label>
-                        <input type="text" class="form-control" name="title" value="{{ old('title')}}">
-                    </div>
-
-                    <div class="from-group">
-                        <label>Starting Price</label>
-                        <input type="text" class="form-control" name="starting_price" value="{{ old('starting_price')}}">
-                    </div>
-
-                    <div class="from-group">
-                        <label>Button Url</label>
-                        <input type="text" class="form-control" name="btn_url" value="{{ old('btn_url')}}">
-                    </div>
-
-                    <div class="from-group">
-                        <label>Serial</label>
-                        <input type="text" class="form-control" name="serial" value="{{ old('serial')}}">
-                    </div>
-
                     <div class="form-group">
+                        <label for="inputState">Is Featured</label>
+                        <select id="inputState" class="form-control" name="is_featured">
+                          <option value="">Select</option>
+                          <option value="1">Yes</option>
+                          <option value="0">No</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
                         <label for="inputState">Status</label>
                         <select id="inputState" class="form-control" name="status">
-                         
+                          <option value="">Select</option>
                           <option value="1">Active</option>
-                          <option value="0">Inactive</option>
+                          <option value="0">InActive</option>
                         </select>
                       </div>
 
