@@ -115,7 +115,6 @@ class BrandController extends Controller
         $category = Brand::findOrFail($request->id);
         $category->status = $request->status =='true' ? 1 : 0;
         $category->save();
-
         return response(['message'=>'Status has been updated']);
      }
 }

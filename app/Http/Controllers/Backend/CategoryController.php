@@ -118,6 +118,6 @@ class CategoryController extends Controller
         $category->status = $request->status =='true' ? 1 : 0;
         $category->save();
 
-        return response(['message'=>'Status has been updated']);
+        return response(['status'=>'success','message'=>'Status has been updated']);
      }
 }
