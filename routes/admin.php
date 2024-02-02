@@ -9,7 +9,7 @@ use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\ChildCategoryController;
-
+use App\Http\Controllers\Backend\ProductController;
 
 // admin dashboard
 Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
@@ -45,3 +45,8 @@ Route::resource('brand', BrandController::class);
 
 /**Vendor Profile routes */
 Route::resource('vendor-profile', AdminVendorProfileController::class);
+
+/**Products routes */
+Route::get('product/get-subcategories', [ProductController::class, 'getSubCategories'])->name('product.get-subcategories');
+Route::get('product/get-childcategories', [ProductController::class, 'getChildCategories'])->name('product.get-childcategories');
+Route::resource('products', ProductController::class);

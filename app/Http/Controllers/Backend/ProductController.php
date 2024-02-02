@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\DataTables\ProductDataTable;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\ChildCategory;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -10,9 +14,10 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(ProductDataTable $productDataTable)
     {
         //
+        return $productDataTable->render('admin.product.index');
     }
 
     /**
@@ -21,6 +26,8 @@ class ProductController extends Controller
     public function create()
     {
         //
+        $categories = Category::all();
+        return view('admin.product.create', compact('categories'));
     }
 
     /**
@@ -61,5 +68,18 @@ class ProductController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    /**get all product sub categories */
+    public function getSubCategories(Request $request)
+    {
+        $subCategories = SubCategory::where('category_id', $request->id)->get();
+        return $subCategories;
+    }
+
+    public function getChildCategories(Request $request)
+    {
+        $childCategories = ChildCategory::where('sub_category_id', $request->id)->get();
+        return $childCategories;
     }
 }
