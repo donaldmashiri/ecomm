@@ -36,7 +36,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="inputState">Category</label>
-                                <select id="inputState" class="form-control main-category" name="status">
+                                <select id="inputState" class="form-control main-category" name="category">
                                 <option value="">Select</option>
                                   @foreach ($categories as $category)
                                   <option value="{{$category->id}}">{{$category->name}}</option>
@@ -47,7 +47,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="inputState">Sub Category</label>
-                                <select id="inputState" class="form-control sub-category" name="status">
+                                <select id="inputState" class="form-control sub-category" name="sub_category">
                                     <option value="">Select</option>
                                 </select>
                               </div>
@@ -56,7 +56,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="inputState">Child Category</label>
-                                <select id="inputState" class="form-control child-category" name="status">
+                                <select id="inputState" class="form-control child-category" name="child_category">
                                     <option value="">Select</option>
                                 </select>
                               </div>
@@ -94,6 +94,7 @@
 
 <script>
   $(document).ready(function(){
+    /**sub categories*/
     $('body').on('change', '.main-category', function(e){
       let id = $(this).val();
       $.ajax({
@@ -137,9 +138,5 @@
         })
         })
   })
-
-
-
-    </script>
-  
+  </script>
 @endpush
