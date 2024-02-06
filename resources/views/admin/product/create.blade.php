@@ -1,22 +1,16 @@
 @extends('admin.layouts.master')
-
 @section('content')
-
 <section class="section">
     <div class="section-header">
       <h1>Product</h1>
     </div>
-
     <div class="section-body">
-
       <div class="row">
         <div class="col-12">
           <div class="card">
             <div class="card-header">
               <h4>Create Product</h4>
             </div>
-
-        
             <div class="card-body">
                 <form method="POST" action="{{route('admin.slider.store')}}" enctype="multipart/form-data">
                     @csrf
@@ -64,13 +58,54 @@
                       </div>
 
                       <div class="form-group">
-                        <label for="inputState">Status</label>
-                        <select id="inputState" class="form-control" name="status">
-                         
-                          <option value="1">Active</option>
-                          <option value="0">Inactive</option>
+                        <label for="inputState">Brand</label>
+                        <select id="inputState" class="form-control" name="brand">
+                          @foreach ($brands as $brand )
+                          <option value="{{$brand->id}}">{{$brand->name}}</option>
+                          @endforeach
                         </select>
                       </div>
+
+                      <div class="form-group">
+                        <label>SKU</label>
+                        <input type="text" class="form-control" name="sku" value="{{old('sku')}}">
+                      </div>
+
+                      <div class="form-group">
+                        <label>Price</label>
+                        <input type="text" class="form-control" name="price" value="{{old('price')}}">
+                      </div>
+
+                      <div class="form-group">
+                        <label>Offer Price</label>
+                        <input type="text" class="form-control" name="offer_price" value="{{old('offer_price')}}">
+                      </div>
+                      
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Offer Price</label>
+                            <input type="text" class="form-control" name="offer_price" value="{{old('offer_price')}}">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Offer Price</label>
+                            <input type="text" class="form-control" name="offer_price" value="{{old('offer_price')}}">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="inputState">Status</label>
+                        <select id="inputState" class="form-control" name="status">
+                          <option value="">Select</option>
+                          <option value="1">Active</option>
+                          <option value="0">InActive</option>
+                        </select>
+                      </div>
+
+                    
                       
 
                 
