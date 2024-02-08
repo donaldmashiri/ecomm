@@ -22,7 +22,37 @@ class ProductDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
+
             ->addColumn('action', 'product.action')
+            ->addColumn('image', function($query){
+                return $img = "<img width='60px' src='".asset($query->thumb_image)."'></img>";
+
+            })
+            ->addColumn('type', function($query){
+
+                switch ($query->product_type) {
+                    case 'new_arrival':
+                        return '<i class="badge badge-success">New Arrival</i>';
+                        break;
+
+                        case 'featured':
+                            return '<i class="badge badge-warning">Featured</i>';
+                            break;
+
+                        case 'top_product':
+                            return '<i class="badge badge-primary">Top Product</i>';
+                            break;
+                        
+                        case 'best_product':
+                            return '<i class="badge badge-success">Best Product</i>';
+                            break;
+                    default:
+                        // default code block
+                        break;
+                }
+                
+            })
+            ->rawColumns(['image','type'])
             ->setRowId('id');
     }
 
@@ -62,15 +92,18 @@ class ProductDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
+     
             Column::make('id'),
-            Column::make('add your columns'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
+            Column::make('image'),
+            Column::make('name'),
+            Column::make('price'),
+            Column::make('type'),
+            Column::make('status'),
+            Column::computed('action')
+            ->exportable(false)
+            ->printable(false)
+            ->width(200)
+            ->addClass('text-center'),
         ];
     }
 

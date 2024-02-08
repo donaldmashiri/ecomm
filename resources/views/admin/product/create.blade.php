@@ -12,7 +12,7 @@
               <h4>Create Product</h4>
             </div>
             <div class="card-body">
-                <form method="POST" action="" enctype="multipart/form-data">
+                <form method="POST" action="{{route('admin.products.store')}}" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group">
@@ -84,21 +84,21 @@
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label>Offer Price</label>
-                            <input type="text" class="form-control datepicker" name="offer_price" value="{{old('offer_price')}}">
+                            <label>Offer Start Date</label>
+                            <input type="text" class="form-control datepicker" name="offer_start_date" value="{{old('offer_start_date')}}">
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label>Offer Price</label>
-                            <input type="text" class="form-control datepicker" name="offer_price" value="{{old('offer_price')}}">
+                            <label>Offer End Date</label>
+                            <input type="text" class="form-control datepicker" name="offer_end_date" value="{{old('offer_end_date')}}">
                           </div>
                         </div>
                       </div>
 
                       <div class="form-group">
                         <label>Stock Quantity</label>
-                        <input type="number" min="0" class="form-control datepicker" name="qty" value="{{old('qty')}}">
+                        <input type="number" min="0" class="form-control" name="qty" value="{{old('qyt')}}">
                       </div>
 
                       
@@ -127,40 +127,18 @@
                         </select>
                       </div>
 
-                   <div class="row">
-                   <div class="col-md-4">
+                  
                     <div class="form-group">
-                      <label for="inputState">Is Top</label>
-                      <select id="inputState" class="form-control" name="is_top">
-                        <option value="">Select</option>
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
+                      <label for="inputState">Product Type</label>
+                      <select id="inputState" class="form-control" name="product_type">
+                        <option value="0">Select</option>
+                        <option value="new_arrival">New Arrival</option>
+                        <option value="featured">Featured</option>
+                        <option value="top_product">Top Product</option>
+                        <option value="best_product">Best Product</option>
                       </select>
                     </div>
-                   </div>
-
-                   <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="inputState">Is Best</label>
-                      <select id="inputState" class="form-control" name="is_best">
-                        <option value="">Select</option>
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
-                      </select>
-                    </div>
-                   </div>
-
-                   <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="inputState">Is Featured</label>
-                      <select id="inputState" class="form-control" name="is_featured">
-                        <option value="">Select</option>
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
-                      </select>
-                    </div>
-                   </div>
-                   </div>
+                 
 
                    <div class="form-group">
                     <label>Seo Title</label>
