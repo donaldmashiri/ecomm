@@ -23,7 +23,7 @@ class ProductImageGalleryDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function($query){
-                    
+
                 $deleteBtn = "<a href='".route('admin.products-image-gallery.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='fas fa-trash-alt'></i></a>";
 
                 return $deleteBtn;
@@ -72,7 +72,7 @@ class ProductImageGalleryDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-        
+
             Column::make('id'),
             Column::make('image'),
             Column::computed('action')
@@ -80,7 +80,7 @@ class ProductImageGalleryDataTable extends DataTable
             ->printable(false)
             ->width(200)
             ->addClass('text-center'),
-            
+
         ];
     }
 
